@@ -3,16 +3,10 @@ pipeline {
 
   environment {
     IMAGE_NAME = "blakode/guestbook"
-    TAG = "latest" // Optional: replace with git commit for better versioning
+    TAG = "v1.0"
   }
 
   stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/bl-rk/guestbook.git'
-      }
-    }
-
     stage('Build') {
       steps {
         sh 'chmod +x mvnw'
