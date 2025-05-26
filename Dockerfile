@@ -1,7 +1,7 @@
 # Required runtine for project
 FROM eclipse-temurin:21-jdk
 
-#  working directory
+# working directory
 WORKDIR /app
 
 # Copy .jar file (output from Jenkins build stage)
