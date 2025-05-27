@@ -1,15 +1,18 @@
 pipeline {
   agent any
 
-  environment {
-    IMAGE_NAME = "blakode/guestbook"
-    TAG = "v1.0"
-  }
+    environment {
+      JAVA_TOOL_OPTIONS = "-Djava.security.egd=file:/dev/./urandom"
+      IMAGE_NAME = "blakode/guestbook"
+      TAG = "v1.0"
+    }
+
 
   stages {
     stage('Build') {
       steps {
         sh 'chmod +x mvnw'
+        sh 'export JAVA_TOOL_OPTIONS="-Djava.security.egd=file:/dev/./urandom"'
         sh './mvnw clean package -DskipTests'
       }
     }
